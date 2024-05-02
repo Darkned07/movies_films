@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import RootRedux from "./RootRedux";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +24,12 @@ export default function RootLayout({
         <header className="bg-base-200 shadow-md">
           <Navbar />
         </header>
-        <main className="max-container">{children}</main>
+        <main className="max-container">
+          <RootRedux>
+            {children}
+            <Toaster position="top-center" reverseOrder={false} />
+          </RootRedux>
+        </main>
         <footer className="bg-neutral">
           <Footer />
         </footer>
