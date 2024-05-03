@@ -8,8 +8,6 @@ function Navbar() {
     { name: "About", href: "/about", id: "2" },
     { name: "Movies", href: "/movies", id: "3" },
     { name: "Contact", href: "/contact", id: "4" },
-    { name: "Login", href: "/auth/login", id: "5" },
-    { name: "Register", href: "/auth/register", id: "6" },
   ];
 
   return (
