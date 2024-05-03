@@ -1,13 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface typ {
-  users: null | [] | object[];
-  user: any;
-}
-
-const initialState: typ = {
+const initialState = {
   users: null,
-  user: localStorage.getItem("user") || null,
+  user: null,
 };
 
 export const authSlice = createSlice({
@@ -16,10 +11,8 @@ export const authSlice = createSlice({
   reducers: {
     getUser: (state, { payload }) => {
       state.users = payload;
-      localStorage.setItem("users", JSON.stringify(payload));
     },
     getUs: (state, { payload }) => {
-      localStorage.setItem("user", JSON.stringify(payload));
       state.user = payload;
     },
   },
