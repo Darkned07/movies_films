@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import { nanoid } from "@reduxjs/toolkit";
+import { error } from "console";
 interface inter {
   email: string;
   name: string;
@@ -37,10 +38,15 @@ const userPostRegister = async (
       email: email,
       password: password,
       roles: "user",
-    }).then((data) => {
-      toast.success("Ro'yxatdan o'tdingiz");
-      return data;
-    });
+    })
+      .then((data) => {
+        toast.success("Ro'yxatdan o'tdingiz");
+        return data;
+      })
+      .catch((error) => {
+        toast.error("Serverda xatolik yuz berdi. qaytadan urunib ko'ring!");
+        console.log(error);
+      });
   } else {
     toast.error("Email avval ro'yxatdan o'tgan! boshqa emaildan foydalaning!");
   }

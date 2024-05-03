@@ -1,7 +1,7 @@
-import React from "react";
+import MoviReg from "./MoviReg";
 
 function Movies() {
-  return <div>Movies</div>;
+  return <MoviReg />;
 }
 
 export default Movies;

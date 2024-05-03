@@ -30,7 +30,7 @@ export default function RootLayout({
             <Toaster position="top-center" reverseOrder={false} />
           </RootRedux>
         </main>
-        <footer className="bg-neutral">
+        <footer className="bg-base-300 ">
           <Footer />
         </footer>
       </body>
