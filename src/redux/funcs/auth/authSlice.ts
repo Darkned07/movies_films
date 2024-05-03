@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface typ {
+  users: null | [] | object[];
+  user: any;
+}
+
+const initialState: typ = {
   users: null,
-  user: null,
+  user: JSON.parse(localStorage.getItem("user")) || null,
 };
 
 export const authSlice = createSlice({

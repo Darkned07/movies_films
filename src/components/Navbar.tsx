@@ -1,7 +1,9 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
 function Navbar() {
+  const data = JSON.parse(localStorage.getItem("user"));
   const links = [
     { name: "Home", href: "/", id: "1" },
     { name: "About", href: "/about", id: "2" },
@@ -40,7 +42,42 @@ function Navbar() {
               tabIndex={0}
               className="menu gap-3 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {links.map((s) => {
+              {!data &&
+                links.map((s) => {
+                  return (
+                    <li key={s.id}>
+                      <Link
+                        className="btn btn-sm btn-outline link-hover link-secondary"
+                        href={s.href}
+                      >
+                        {s.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              {data &&
+                links.slice(0, -2).map((s) => {
+                  return (
+                    <li key={s.id}>
+                      <Link
+                        className="btn btn-sm btn-outline link-hover link-secondary"
+                        href={s.href}
+                      >
+                        {s.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
+          <Link href="/" className="btn btn-secondary btn-outline text-xl">
+            Kino olami
+          </Link>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu gap-3 menu-horizontal px-1">
+            {data &&
+              links.slice(0, -2).map((s) => {
                 return (
                   <li key={s.id}>
                     <Link
@@ -52,26 +89,19 @@ function Navbar() {
                   </li>
                 );
               })}
-            </ul>
-          </div>
-          <Link href="/" className="btn btn-secondary btn-outline text-xl">
-            Kino olami
-          </Link>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu gap-3 menu-horizontal px-1">
-            {links.map((s) => {
-              return (
-                <li key={s.id}>
-                  <Link
-                    className="btn btn-sm btn-outline link-hover link-secondary"
-                    href={s.href}
-                  >
-                    {s.name}
-                  </Link>
-                </li>
-              );
-            })}
+            {!data &&
+              links.map((s) => {
+                return (
+                  <li key={s.id}>
+                    <Link
+                      className="btn btn-sm btn-outline link-hover link-secondary"
+                      href={s.href}
+                    >
+                      {s.name}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
         </div>
         <div className="navbar-end ">

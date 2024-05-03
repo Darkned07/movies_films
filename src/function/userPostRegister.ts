@@ -1,6 +1,5 @@
 import toast from "react-hot-toast";
 import { nanoid } from "@reduxjs/toolkit";
-import { error } from "console";
 interface inter {
   email: string;
   name: string;
