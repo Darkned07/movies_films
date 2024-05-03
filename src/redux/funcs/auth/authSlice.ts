@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   users: null,
-  user: JSON.stringify(localStorage.getItem("user")) || null,
+  user: null,
 };
 
 export const authSlice = createSlice({
@@ -13,7 +13,6 @@ export const authSlice = createSlice({
       state.users = payload;
     },
     getUs: (state, { payload }) => {
-      localStorage.setItem("user", JSON.stringify(payload));
       state.user = payload;
     },
   },
