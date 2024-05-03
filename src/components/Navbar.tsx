@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 function Navbar() {
-  const data = JSON.parse(localStorage.getItem("user"));
+  const data = localStorage.getItem("user");
   const links = [
     { name: "Home", href: "/", id: "1" },
     { name: "About", href: "/about", id: "2" },
