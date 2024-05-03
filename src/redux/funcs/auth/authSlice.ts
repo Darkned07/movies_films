@@ -7,7 +7,7 @@ interface typ {
 
 const initialState: typ = {
   users: null,
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: localStorage.getItem("user") || null,
 };
 
 export const authSlice = createSlice({
